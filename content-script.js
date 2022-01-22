@@ -24,7 +24,7 @@ const wordArray=[["open",["tab","window","incognito"]],["close",["tab","window"]
 
 function processSentence(sentence){
     const words = sentence.split(" ");
-    index=words.find("chrome");
+    index=words.find(element => element === "chrome");
     if((index==(words.length-1))||(index==undefined)){
         return false;
     }
