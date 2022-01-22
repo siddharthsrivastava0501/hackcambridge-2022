@@ -8,7 +8,7 @@ navigator.mediaDevices.getUserMedia({ audio: true }).then(stream => {
             socket.send(event.data)
         })
 
-        mediaRecorder.start(250)
+        mediaRecorder.start(500)
     }
 
     socket.onmessage = message => {
@@ -25,7 +25,7 @@ const wordArray=[["open",["tab","window","incognito"]],["close",["tab","window"]
 function processSentence(sentence){
     const words = sentence.split(" ");
     index=words.find(element => element === "chrome");
-    if((index==(words.length-1))||(index==undefined)){
+    if((index==(words.length-1))||(index==(words.length-2))||(index==undefined)){
         return false;
     }
     found=-1;
@@ -45,7 +45,7 @@ function processSentence(sentence){
                 if((found==6)&&(words.length-index<3)){
                     return false;
                 }else if(found==6){
-                    if((words[index+2].localeCompare(wordArray[i][1][0]!=0))||(words[index+3].localeCompare(wordArray[i][1][1]!=0))){
+                    if((words[index+2].localeCompare(wordArray[i][1][0])!=0)||(words[index+3].localeCompare(wordArray[i][1][1])!=0)){
                         return false;
                     }
                 }
