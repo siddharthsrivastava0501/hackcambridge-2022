@@ -1,0 +1,22 @@
+TABS
+  Open
+  Open recent
+  Close
+  Switch
+Window
+  Minimise
+  Close
+  New window
+  New incognito window
+Web
+  Search
+  Go to website (might be hard due to proprietary names and stuff)
+Library(?)
+  Open bookmarks
+  Save to bookmarks
+  Open downloads
+  Open history
+  Open extensions menu
+Other
+  Print page
+  Open settings
