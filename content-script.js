@@ -1,10 +1,4 @@
-const fs = require('fs');
-require('dotenv').config();
-const {KEY} = require('./config.js')
-
-navigator.mediaDevices.getUserMedia({ audio: true })
-.then(stream => {
-    console.log("CALLED")
+navigator.mediaDevices.getUserMedia({ audio: true }).then(stream => {
     const mediaRecorder = new MediaRecorder(stream, {mimeType: 'audio/webm'})
     const socket = new WebSocket('wss://api.deepgram.com/v1/listen', ['token', 
     '8ab30cfaef2caa33afda2dfe260d35fb86b17952'])
@@ -24,7 +18,4 @@ navigator.mediaDevices.getUserMedia({ audio: true })
             document.querySelector('p').textContent += ' ' + transcript
         } 
     }
-})
-.catch((err) => {
-    console.log(err)
 })
