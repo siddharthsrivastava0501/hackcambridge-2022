@@ -24,12 +24,13 @@ const wordArray=[["open",["tab","window","incognito"]],["close",["tab","window"]
 
 function processSentence(sentence){
     const words = sentence.split(" ");
-    index=words.find(element => element === "chrome");
+    index=words.indexOf("chrome");
     if((index==(words.length-1))||(index==(words.length-2))||(index==undefined)){
         return false;
     }
     found=-1;
     for (let i = 0; i < wordArray.length;i++){
+        console.log(words[index+1]);
         if(words[index+1].localeCompare(wordArray[i][0])==0){
             found=i;
             break;
@@ -61,7 +62,6 @@ function processSentence(sentence){
     }
     //Action:open
     if(found==0){
-        console.log("Printy boi");
         chrome.tabs.create({});
         if(found2==0){
 
