@@ -1,0 +1,20 @@
+  .h2{
+    text-align: center;
+  }
+  
+  .button {
+    border: none;
+    background-color: rgb(125, 206, 235);
+    color: black;
+    height:30px;
+    width: 200px;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+  }
+
+body{
+   background-color: rgb(71, 67, 67)
+}
