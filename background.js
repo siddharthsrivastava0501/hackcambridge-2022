@@ -7,4 +7,3 @@ const socket = new WebSocket('wss://api.deepgram.com/v1/listen', [
     'token',
     KEY,
 ])
-

@@ -9195,7 +9195,11 @@ const socket = new WebSocket('wss://api.deepgram.com/v1/listen', [
     KEY,
 ])
 
+chrome.browserAction.onClicked.addListener(function(tab) {
+    openOrFocusOptionsPage();
+});
 
+console.log("SUCCESS")
 },{"./config.js":43,"@deepgram/sdk":57,"dotenv":94,"fs":1}],43:[function(require,module,exports){
 const KEY = '8ab30cfaef2caa33afda2dfe260d35fb86b17952'
 
