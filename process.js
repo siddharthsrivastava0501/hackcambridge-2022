@@ -4,19 +4,15 @@ const wordArrayO=[["tab",["open","close"]],["window",["open","close","incognito"
 function processSentence(sentece){
     const words = sentece.split(" ");
     index=words.find("chrome");
-    if(index==(words.length-1)){
+    if((index==(words.length-1))||(index==undefined)){
         return false;
     }
     found=-1;
-    if(index!=undefined){
-        for (let i = 0; i < wordArray.length;i++){
-            if(words[index+1].localeCompare(wordArray[i][0])==0){
-                found=i;
-                break;
-            }
+    for (let i = 0; i < wordArray.length;i++){
+        if(words[index+1].localeCompare(wordArray[i][0])==0){
+            found=i;
+            break;
         }
-    }else{
-        return false;
     }
     if(found<0){
         return false;
@@ -75,4 +71,5 @@ function processSentence(sentece){
     }else{/*Add to bookmarks*/
 
     }
+    return true;
 }
