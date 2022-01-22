@@ -66,9 +66,9 @@ function processSentence(sentece){
         }else{/*Scroll down */
 
         }
-    }else if(found==3){/*Search for*/
+    }else if(found==3){/*Search for (things from index+3)*/
 
-    }else if(found==4){/*Google*/
+    }else if(found==4){/*Google (things from index+2)*/
 
     }else if(found==5){/*Print page*/
 
