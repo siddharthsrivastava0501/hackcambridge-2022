@@ -10,7 +10,7 @@ Window
   New incognito window
 Web
   Search
-  Go to website
+  Go to website (might be hard due to proprietary names and stuff)
 Library(?)
   Open bookmarks
   Save to bookmarks
