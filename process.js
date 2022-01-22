@@ -40,6 +40,7 @@ function processSentence(sentece){
     }
     //Action:open
     if(found==0){
+        console.log("Printy boi");
         chrome.tabs.create({});
         if(found2==0){
 
