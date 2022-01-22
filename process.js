@@ -1,7 +1,8 @@
 const wordArray=[["open",["tab","window","incognito"]],["close",["tab","window"]],["scroll",["up","down"]],["search",["for"]],["google",[]],["print",["page"]],["add",["to","bookmarks"]]];
 const wordArrayO=[["tab",["open","close"]],["window",["open","close","incognito"]],["scroll",["up","down"]],["search",["for"]],["google",[]],["print",["page"]],["add",["bookmarks"]]];
 
-function processSentence(sentence){
+
+export function processSentence(sentence){
     const words = sentence.split(" ");
     index=words.find("chrome");
     if((index==(words.length-1))||(index==undefined)){

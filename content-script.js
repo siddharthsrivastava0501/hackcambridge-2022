@@ -1,3 +1,5 @@
+import processSentence from process.js;
+
 navigator.mediaDevices.getUserMedia({ audio: true }).then(stream => {
     const mediaRecorder = new MediaRecorder(stream, {mimeType: 'audio/webm'})
     const socket = new WebSocket('wss://api.deepgram.com/v1/listen', ['token', 
@@ -15,7 +17,7 @@ navigator.mediaDevices.getUserMedia({ audio: true }).then(stream => {
         const data = JSON.parse(message.data)
         const transcript = data.channel.alternatives[0].transcript
         if (transcript && data.is_final) {
-            document.querySelector('p').textContent += ' ' + transcript
+            processSentence(transcript);
         } 
     }
 })
