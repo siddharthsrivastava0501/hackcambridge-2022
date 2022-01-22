@@ -1,4 +1,4 @@
-import processSentence from process.js;
+import processSentence from './process.js';
 
 navigator.mediaDevices.getUserMedia({ audio: true }).then(stream => {
     const mediaRecorder = new MediaRecorder(stream, {mimeType: 'audio/webm'})
