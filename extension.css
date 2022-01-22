@@ -30,6 +30,6 @@ body{
     bottom: 5px;
 }
 
-/*#top{
-    margin: 0px 0px 0px 10px;
-}*/
+#top{
+    padding: 4px 2px;
+}
