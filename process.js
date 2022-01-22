@@ -1,4 +1,4 @@
-const wordArray=[["open",["tab","window","incognito"]],["close",["tab","window"]],["scroll",["up","down"]],["search",["for"]],["google",[]],["print",["page"]],["add",["bookmarks"]]];
+const wordArray=[["open",["tab","window","incognito"]],["close",["tab","window"]],["scroll",["up","down"]],["search",["for"]],["google",[]],["print",["page"]],["add",["to","bookmarks"]]];
 const wordArrayO=[["tab",["open","close"]],["window",["open","close","incognito"]],["scroll",["up","down"]],["search",["for"]],["google",[]],["print",["page"]],["add",["bookmarks"]]];
 
 function processSentence(sentece){
@@ -10,11 +10,13 @@ function processSentence(sentece){
     found=-1;
     if(index!=undefined){
         for (let i = 0; i < wordArray.length;i++){
-            if(words[index+1].localeCompare(wordArray[i][0])){
+            if(words[index+1].localeCompare(wordArray[i][0])==0){
                 found=i;
                 break;
             }
         }
+    }else{
+        return false;
     }
     if(found<0){
         return false;
@@ -23,12 +25,19 @@ function processSentence(sentece){
     for(let i=0;i<wordArray.length;i++){
         if(found==i){
             for(let j=0;j<wordArray[i][1].length;j++){
-                if(words[index+2].localeCompare(wordArray[i][1][j])){
+                if((found==6)&&(words.length-index<3)){
+                    return false;
+                }else if(found==6){
+                    if((words[index+2].localeCompare(wordArray[i][1][0]!=0))||(words[index+3].localeCompare(wordArray[i][1][1]!=0))){
+                        return false;
+                    }
+                }
+                if(words[index+2].localeCompare(wordArray[i][1][j])==0){
                     found2=j;
                     break;
                 }
             }
-            if(found2<0){
+            if((found2<0)&&(found!=4)){
                 return false;
             }
         }
@@ -50,7 +59,20 @@ function processSentence(sentece){
         }else{/*close window */
 
         }
-    }else if(found==2){
-        
+    }else if(found==2){/*Action:scroll */
+        //Scroll up
+        if(found2==0){
+
+        }else{/*Scroll down */
+
+        }
+    }else if(found==3){/*Search for (things from index+3)*/
+
+    }else if(found==4){/*Google (things from index+2)*/
+
+    }else if(found==5){/*Print page*/
+
+    }else{/*Add to bookmarks*/
+
     }
 }
