@@ -40,7 +40,7 @@ function processSentence(sentece){
     }
     //Action:open
     if(found==0){
-        //open tab
+        chrome.tabs.create({});
         if(found2==0){
 
         }else if(found2==1){/*close tab*/
@@ -49,11 +49,13 @@ function processSentence(sentece){
 
         }
     }else if(found==1){/*Action:close*/
-        //close tab
+        chrome.tabs.query({currentWindow: true, active: true}, function(tabs){tabID = tabs[0].id});
+        chrome.tabs.remove(tabID);
         if(found2==0){
 
         }else{/*close window */
-
+            windowID = chrome.tabs.getCurrent().id;
+            chrome.windows.remove(windowID);
         }
     }else if(found==2){/*Action:scroll */
         //Scroll up
