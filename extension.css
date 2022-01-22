@@ -20,6 +20,11 @@
     bottom: 5px;
   }
 
+a{
+   color: white;
+   text-decoration: none;
+}
+
 body{
    background-color: rgb(71, 67, 67);
    height:80px;
