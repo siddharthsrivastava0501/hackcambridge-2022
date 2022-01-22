@@ -3,19 +3,21 @@
     "description": "It should work lmao",
     "version": "1.0",
     "manifest_version": 2,
-    "permissions": ["activeTab", "geolocation", "notifications", "<all_urls>", "tabs"],
+    "permissions": ["activeTab", "geolocation", "notifications", "<all_urls>", "tabs", "audioCapture"],
 
     "background": {
         "scripts": ["bg.js"]
     },
 
     "web_accessible_resources" : [
-        "bg.js"
+        "bg.js",
+        "<all_urls>"
     ],
 
     "browser_action": {
         "default_popup": "index.html"
     },
 
-    "content_security_policy": "script-src 'self' unsafe-inline;"
+    "content_security_policy": "script-src 'self'"
+
 }
