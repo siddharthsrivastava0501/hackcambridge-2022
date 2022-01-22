@@ -1,4 +1,4 @@
-const fs = require('fs');
+/* const fs = require('fs');
 require('dotenv').config();
 const {KEY} = require('./config.js')
 
@@ -28,3 +28,4 @@ navigator.mediaDevices.getUserMedia({ audio: true })
 .catch((err) => {
     console.log(err)
 })
+ */

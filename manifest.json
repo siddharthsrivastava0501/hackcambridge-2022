@@ -3,21 +3,22 @@
     "description": "It should work lmao",
     "version": "1.0",
     "manifest_version": 2,
-    "permissions": ["activeTab", "geolocation", "notifications", "<all_urls>", "tabs", "audioCapture"],
+    "permissions": ["activeTab", "geolocation", "notifications", "wss://api.deepgram.com/*", "tabs"],
 
     "background": {
-        "scripts": ["bg.js"]
+        "scripts": ["bg.js"],
+        "persistent": true
     },
+
+
 
     "web_accessible_resources" : [
         "bg.js",
-        "<all_urls>"
+        "content-script.js",
+        "wss://api.deepgram.com/*"
     ],
 
     "browser_action": {
         "default_popup": "index.html"
-    },
-
-    "content_security_policy": "script-src 'self'"
-
+    }
 }
