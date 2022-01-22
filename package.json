@@ -17,6 +17,9 @@
   },
   "homepage": "https://github.com/siddharthsrivastava0501/hackcambridge-2022#readme",
   "dependencies": {
-    "deepgram": "^1.0.3"
+    "@deepgram/sdk": "^1.2.0",
+    "deepgram": "^1.0.3",
+    "dotenv": "^14.2.0",
+    "fs": "0.0.1-security"
   }
 }
