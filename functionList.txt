@@ -8,11 +8,11 @@ Window
   Close                                                               Possible
   New window                                                          Possible
   New incognito window                                                Possible
+  Scroll down/up                                                      Possible
 Web
   Search                                                              Possible
   Go to website (might be hard due to proprietary names and stuff)    Possible (probably)
 Library(?)
-  Open bookmarks
   Save to bookmarks                                                   Possible
   Open downloads
   Open history
