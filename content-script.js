@@ -15,6 +15,7 @@ navigator.mediaDevices.getUserMedia({ audio: true }).then(stream => {
         const data = JSON.parse(message.data)
         const transcript = data.channel.alternatives[0].transcript
         if (transcript && data.is_final) {
+            document.querySelector('p').textContent += ' ' + transcript;
             processSentence(transcript);
         } 
     }
@@ -65,19 +66,17 @@ function processSentence(sentence){
         chrome.tabs.create({});
         if(found2==0){
 
-        }else if(found2==1){/*close tab*/
-
-        }else{/*open icognito */
-
+        }else if(found2==1){
+            chrome.windows.create({});
+        }else{
+            chrome.windows.create({incognito: true});
         }
     }else if(found==1){/*Action:close*/
-        chrome.tabs.query({currentWindow: true, active: true}, function(tabs){tabID = tabs[0].id});
-        chrome.tabs.remove(tabID);
+        console.log("kek");
         if(found2==0){
-
+            tabID = chrome.tabs.query({currentWindow: true, active: true}, function(tabs){chrome.tabs.remove(tabs[0].id)});
         }else{/*close window */
-            windowID = chrome.tabs.getCurrent().id;
-            chrome.windows.remove(windowID);
+            chrome.windows.getCurrent({}, function(win){chrome.windows.remove(win.id)});
         }
     }else if(found==2){/*Action:scroll */
         //Scroll up
