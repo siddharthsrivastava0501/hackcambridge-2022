@@ -13,7 +13,6 @@ Stëmm leverages the [Deepgram](https://docs.deepgram.com) API to convert your s
 ## Tasks
 - [ ] Write comments for all code
 - [ ] Make the Devpost catchier?
-- [ ] Problem: when i opened all four websites in a row an then wanted to close tab, it didn't work
 
 ---
 
