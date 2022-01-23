@@ -79,10 +79,14 @@ function processSentence(sentence){
         }
     }else if(found==2){/*Action:scroll */
         if(found2==0){
-            $('body').ajaxSuccess(function() {
-                console.log("REACHED")
-                $('html, body').animate({ scrollTop: 0 }, 'slow');
-            });
+            chrome.windows.getCurrent({}, function(win) {
+                console.log("FOUND")
+                win.scroll({
+                    top: 100,
+                    behavior: 'smooth'
+                });
+            })
+            
         }else{/*Scroll down */
 
         }
