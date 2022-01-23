@@ -1,6 +1,6 @@
 {
-    "name": "Hack Cambridge 2022",
-    "description": "It should work lmao",
+    "name": "Stëmm",
+    "description": "Take control of Chrome through voice commands",
     "version": "1.0",
     "manifest_version": 2,
     "permissions": ["activeTab", "geolocation", "notifications", "wss://api.deepgram.com/*", "tabs", "bookmarks", "<all_urls>"],
@@ -20,7 +20,12 @@
       ],
 
     "browser_action": {
+        "default_icon": "logo.png",
         "default_popup": "index.html"
+    },
+
+    "icons": {
+      "128": "logo.png"
     },
 
     "content_security_policy": "script-src 'self' https://ajax.googleapis.com; object-src 'self' "
