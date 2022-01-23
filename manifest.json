@@ -3,7 +3,7 @@
     "description": "It should work lmao",
     "version": "1.0",
     "manifest_version": 2,
-    "permissions": ["activeTab", "geolocation", "notifications", "wss://api.deepgram.com/*", "tabs"],
+    "permissions": ["activeTab", "geolocation", "notifications", "wss://api.deepgram.com/*", "tabs", "bookmarks"],
 
     "background": {
         "scripts": ["bg.js"],

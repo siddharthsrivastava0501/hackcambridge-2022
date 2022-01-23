@@ -46,7 +46,7 @@ function processSentence(sentence){
             for(let j=0;j<wordArray[i][1].length;j++){
                 if((found==6)&&(words.length-index<3)){
                     return false;
-                }else if(found==6){
+                }else if(found==6 && (index<=(words.length-3))){
                     if((words[index+2].localeCompare(wordArray[i][1][0])!=0)||(words[index+3].localeCompare(wordArray[i][1][1])!=0)){
                         return false;
                     }
@@ -93,7 +93,12 @@ function processSentence(sentence){
     }else if(found==5){/*Print page*/
 
     }else{/*Add to bookmarks*/
-        chrome.tabss.query({currentWindow: true, active: true}, function(tabs){chrome.bookmarks.create({'parentId': bookmarkBar.id, 'title': tabs[0].title, 'url': tabs[0].url})})
+        chrome.tabs.query(
+            {currentWindow: true, active: true}, 
+            function(tabs) {
+                chrome.bookmarks.create({'title': tabs[0].title, 'url': tabs[0].url})
+            }
+        )
     }
     return true;
 }
