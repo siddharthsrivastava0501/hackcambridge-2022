@@ -1,3 +1,4 @@
+overallTranscript="";
 //Asks for access to the user's voice recording device and stores it in a MediaRecorder object
 navigator.mediaDevices.getUserMedia({ audio: true }).then(stream => {
     const mediaRecorder = new MediaRecorder(stream, {mimeType: 'audio/webm'})
@@ -10,7 +11,7 @@ navigator.mediaDevices.getUserMedia({ audio: true }).then(stream => {
             socket.send(event.data)
         })
 
-        mediaRecorder.start(500)
+        mediaRecorder.start(300)
     }
     //When the API sends back a message
     socket.onmessage = message => {
@@ -19,7 +20,12 @@ navigator.mediaDevices.getUserMedia({ audio: true }).then(stream => {
         //Prints transcript and passes it to the processing function
         if (transcript && data.is_final) {
             document.querySelector('p').textContent += ' ' + transcript;
-            processSentence(transcript);
+            //processSentence(transcript);
+            overallTranscript+=transcript +' ';
+            
+        }else if(data.is_final && overallTranscript.localeCompare("")!=0){
+            processSentence(overallTranscript);
+            overallTranscript="";
         } 
     }
 })
