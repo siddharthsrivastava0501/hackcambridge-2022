@@ -80,6 +80,10 @@ function processSentence(sentence){
     }else if(found==2){/*Action:scroll up*/
         if(found2==0){
             $(document).scrollTop($(document).height());
+            /* $('body').ajaxSuccess(function() {
+                console.log("REACHED")
+                $('html, body').animate({ scrollTop: 0 }, 'slow');
+            }); */
         }else{/*Scroll down */
 
         }
