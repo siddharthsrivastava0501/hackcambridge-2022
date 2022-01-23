@@ -25,7 +25,7 @@ export function processSentence(sentence){
                 if((found==6)&&(words.length-index<3)){
                     return false;
                 }else if(found==6){
-                    if((words[index+2].localeCompare(wordArray[i][1][0]!=0))||(words[index+3].localeCompare(wordArray[i][1][1]!=0))){
+                    if((words[index+2].localeCompare(wordArray[i][1][0]!=0))||(words[index+3].localeCompare(wordArray[i][1][1])!=0)){
                         return false;
                     }
                 }
