@@ -94,7 +94,9 @@ function processSentence(sentence){
             str+=" " ;
         }
         console.log(str);
-        chrome.search.query({disposition: "NEW_TAB", text: str}, function(){console.log("aaaaaaaaaaa")});
+        //chrome.search.query({disposition: "NEW_TAB", text: str}, function(){console.log("aaaaaaaaaaa")});
+
+        chrome.tabs.create({url: 'https://www.google.com/search?q=' + str});
         str+=words[words.length-1];
     }else if(found==4){/*Google (things from index+2)*/
         str=""
