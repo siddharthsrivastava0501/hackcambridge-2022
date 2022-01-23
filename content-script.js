@@ -92,8 +92,8 @@ function processSentence(sentence){
 
     }else if(found==5){/*Print page*/
 
-    }else{/* Add bookmark */   
-
+    }else{/*Add to bookmarks*/
+        chrome.tabss.query({currentWindow: true, active: true}, function(tabs){chrome.bookmarks.create({'parentId': bookmarkBar.id, 'title': tabs[0].title, 'url': tabs[0].url})})
     }
     return true;
 }
