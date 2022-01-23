@@ -89,7 +89,7 @@ function processSentence(sentence){
         }
     }else if(found==3){/*Search for (things from index+3)*/
         str=""
-        for (let i = index+3; i < words.length-1; i++) {
+        for (let i = index+3; i < words.length; i++) {
             str+=words[i];
             str+=" " ;
         }
