@@ -66,58 +66,57 @@ function processSentence(sentence){
         }
     }
     console.log(found);
-    //Action:open
-    if(found==0){
+    //Start of different functions being executed depending on the input
+    if(found==0){                                                           //Hears phrase 'open': restricts possible functions accordingly
         if(found2==0 || found2==1){
-            chrome.tabs.create({});
+            chrome.tabs.create({});                                         //New tab
         }else if(found2==2){
-            chrome.windows.create({});
+            chrome.windows.create({});                                      //New window
         }
         else if(found2==3){
-            chrome.windows.create({incognito: true});
+            chrome.windows.create({incognito: true});                       //New incognito window
         }
         else if(found2==4){
-            chrome.tabs.create({url: 'https://en-gb.facebook.com/'});
+            chrome.tabs.create({url: 'https://en-gb.facebook.com/'});       //Go to Facebook
         }
         else if(found2==5){
-            chrome.tabs.create({url: 'https://github.com/'});
+            chrome.tabs.create({url: 'https://github.com/'});               //Go to Github
         }
         else if(found2==6){
-            chrome.tabs.create({url: 'https://www.instagram.com/'});
+            chrome.tabs.create({url: 'https://www.instagram.com/'});        //Go to Instagram
         }
         else{
-            chrome.tabs.create({url: 'https://www.netflix.com/gb/'});
+            chrome.tabs.create({url: 'https://www.netflix.com/gb/'});       //Go to Netflix
         }
-    }else if(found==1 || found==2){/*Action:close*/
+    }else if(found==1 || found==2){                                         //Hears phrase 'close': restricts possible functions accordingly
 
         if(found2==0 || found2==1){
-            tabID = chrome.tabs.query({currentWindow: true, active: true}, function(tabs){chrome.tabs.remove(tabs[0].id)});
-        }else{/*close window */
-            chrome.windows.getCurrent({}, function(win){chrome.windows.remove(win.id)});
+            tabID = chrome.tabs.query({currentWindow: true, active: true}, function(tabs){chrome.tabs.remove(tabs[0].id)}); //Close tab
+        }else{
+            chrome.windows.getCurrent({}, function(win){chrome.windows.remove(win.id)});                                    //Close window
         }
-    }else if(found==3){/*Search for (things from index+3)*/
+    }else if(found==3){
         str=""
         for (let i = index+3; i < words.length; i++) {
             str+=words[i];
             str+=" " ;
         }
         console.log(str);
-        //chrome.search.query({disposition: "NEW_TAB", text: str}, function(){console.log("aaaaaaaaaaa")});
 
-        chrome.tabs.create({url: 'https://www.google.com/search?q=' + str});
+        chrome.tabs.create({url: 'https://www.google.com/search?q=' + str});                                                //Search phrase
     }else if(found==4){/*Google (things from index+2)*/
         str=""
         for (let i = index+2; i < words.length; i++) {
             str+=words[i];
             str+=" " 
         }
-        chrome.tabs.create({url: 'https://www.google.com/search?q=' + str});
-    }else{/*Add to bookmarks*/
+        chrome.tabs.create({url: 'https://www.google.com/search?q=' + str});                                                //Search phrase
+    }else{
         chrome.tabs.query(
             {currentWindow: true, active: true}, 
             function(tabs) {
-                chrome.bookmarks.create({'title': tabs[0].title, 'url': tabs[0].url})
-            }
+                chrome.bookmarks.create({'title': tabs[0].title, 'url': tabs[0].url})                                       //Add currrent URL
+            }                                                                                                               //to bookmarks
         )
     }
     return true;
