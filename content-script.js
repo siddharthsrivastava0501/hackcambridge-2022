@@ -94,11 +94,11 @@ function processSentence(sentence){
             str+=" " ;
         }
         console.log(str);
-        chrome.search.query({disposition: "NEW_TAB", text: str});
+        chrome.search.query({disposition: "NEW_TAB", text: str}, function(){console.log("aaaaaaaaaaa")});
         str+=words[words.length-1];
     }else if(found==4){/*Google (things from index+2)*/
         str=""
-        for (let i = index+2; i < words.length-1; i++) {
+        for (let i = index+2; i < words.length; i++) {
             str+=words[i];
             str+=" " 
         }
