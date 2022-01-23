@@ -77,12 +77,9 @@ function processSentence(sentence){
         }else{/*close window */
             chrome.windows.getCurrent({}, function(win){chrome.windows.remove(win.id)});
         }
-    }else if(found==2){/*Action:scroll */
+    }else if(found==2){/*Action:scroll up*/
         if(found2==0){
-            $('body').ajaxSuccess(function() {
-                console.log("REACHED")
-                $('html, body').animate({ scrollTop: 0 }, 'slow');
-            });
+            $(document).scrollTop($(document).height());
         }else{/*Scroll down */
 
         }
