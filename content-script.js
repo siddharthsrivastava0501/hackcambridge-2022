@@ -63,9 +63,8 @@ function processSentence(sentence){
     }
     //Action:open
     if(found==0){
-        chrome.tabs.create({});
         if(found2==0){
-
+            chrome.tabs.create({});
         }else if(found2==1){
             chrome.windows.create({});
         }else{
@@ -79,9 +78,11 @@ function processSentence(sentence){
             chrome.windows.getCurrent({}, function(win){chrome.windows.remove(win.id)});
         }
     }else if(found==2){/*Action:scroll */
-        //Scroll up
         if(found2==0){
-
+            $('body').ajaxSuccess(function() {
+                console.log("REACHED")
+                $('html, body').animate({ scrollTop: 0 }, 'slow');
+            });
         }else{/*Scroll down */
 
         }
@@ -91,7 +92,7 @@ function processSentence(sentence){
 
     }else if(found==5){/*Print page*/
 
-    }else{/*Add to bookmarks*/
+    }else{/* Add bookmark */   
 
     }
     return true;
