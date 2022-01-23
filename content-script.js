@@ -1,7 +1,7 @@
 navigator.mediaDevices.getUserMedia({ audio: true }).then(stream => {
     const mediaRecorder = new MediaRecorder(stream, {mimeType: 'audio/webm'})
-    const socket = new WebSocket('wss://api.deepgram.com/v1/listen', ['token', 
-    '8ab30cfaef2caa33afda2dfe260d35fb86b17952'])
+    const socket = new WebSocket('wss://api.deepgram.com/v1/listen', 
+        ['token', globalThis.KEY])
 
     socket.onopen = () => {
         mediaRecorder.addEventListener('dataavailable', event => {
@@ -21,7 +21,8 @@ navigator.mediaDevices.getUserMedia({ audio: true }).then(stream => {
     }
 })
 
-const wordArray=[["open",["tab","window","incognito"]],["close",["tab","window"]],["scroll",["up","down"]],["search",["for"]],["google",[]],["print",["page"]],["add",["to","bookmarks"]]];
+const wordArray=[["open",["tub","window","incognito"]],["close",["tub","window"]],["scroll",["up","down"]],["search",["for"]],["google",[]],["print",["page"]],["add",["to","bookmarks"]]];
+
 
 function processSentence(sentence){
     const words = sentence.split(" ");
@@ -71,7 +72,7 @@ function processSentence(sentence){
             chrome.windows.create({incognito: true});
         }
     }else if(found==1){/*Action:close*/
-        console.log("kek");
+
         if(found2==0){
             tabID = chrome.tabs.query({currentWindow: true, active: true}, function(tabs){chrome.tabs.remove(tabs[0].id)});
         }else{/*close window */
@@ -79,11 +80,8 @@ function processSentence(sentence){
         }
     }else if(found==2){/*Action:scroll up*/
         if(found2==0){
-            $(document).scrollTop($(document).height());
-            /* $('body').ajaxSuccess(function() {
-                console.log("REACHED")
-                $('html, body').animate({ scrollTop: 0 }, 'slow');
-            }); */
+
+            document.body.scrollTop = 0;
         }else{/*Scroll down */
 
         }

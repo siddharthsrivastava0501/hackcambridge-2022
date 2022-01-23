@@ -3,22 +3,25 @@
     "description": "It should work lmao",
     "version": "1.0",
     "manifest_version": 2,
-    "permissions": ["activeTab", "geolocation", "notifications", "wss://api.deepgram.com/*", "tabs", "bookmarks", "https://ajax.googleapis.com/*"],
-
-    "background": {
-        "scripts": ["bg.js"],
-        "persistent": true
-    },
-
-
+    "permissions": ["activeTab", "geolocation", "notifications", "wss://api.deepgram.com/*", "tabs", "bookmarks", "<all_urls>"],
 
     "web_accessible_resources" : [
-        "bg.js",
         "content-script.js",
         "wss://api.deepgram.com/*"
     ],
 
+    "content_scripts": [
+        {
+          "matches": ["<all_urls>"],
+          "js": [
+            "config.js"
+          ]
+        }
+      ],
+
     "browser_action": {
         "default_popup": "index.html"
-    }
+    },
+
+    "content_security_policy": "script-src 'self' https://ajax.googleapis.com; object-src 'self' "
 }
