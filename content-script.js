@@ -61,7 +61,6 @@ function processSentence(sentence){
     }
     //Action:open
     if(found==0){
-        console.log("Printy boi");
         chrome.tabs.create({});
         if(found2==0){
 
@@ -71,7 +70,7 @@ function processSentence(sentence){
 
         }
     }else if(found==1){/*Action:close*/
-        chrome.tabs.query({currentWindow: true, active: true}, function(tabs){tabID = tabs[0].id});
+        tabID = chrome.tabs.query({currentWindow: true, active: true}, function(tabs){tabID = tabs[0].id});
         chrome.tabs.remove(tabID);
         if(found2==0){
 
