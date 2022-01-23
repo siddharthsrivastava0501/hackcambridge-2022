@@ -93,7 +93,7 @@ function processSentence(sentence){
             str+=words[i];
             str+=" " ;
         }
-        console.log("Printy boi");
+        console.log(str);
         chrome.search.query({disposition: "NEW_TAB", text: str});
         str+=words[words.length-1];
     }else if(found==4){/*Google (things from index+2)*/
