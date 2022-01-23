@@ -11,10 +11,9 @@ Stëmm leverages the [Deepgram](https://docs.deepgram.com) API to convert your s
 3. Open the extension *in developer mode* as an unpacked extension on `chrome://extensions`
 
 ## Tasks
-- [ ] Add support for YouTube, Netflix, Tabula, other sites
 - [ ] Write comments for all code
-- [ ] Make sure tubs / closed is resolved
 - [ ] Make the Devpost catchier?
+- [ ] Problem: when i opened all four websites in a row an then wanted to close tab, it didn't work
 
 ---
 
