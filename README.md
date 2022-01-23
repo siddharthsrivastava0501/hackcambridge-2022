@@ -10,6 +10,12 @@ Stëmm leverages the [Deepgram](https://docs.deepgram.com) API to convert your s
 2. Create a new file called `config.js` and paste the following line: `globalThis.KEY = <YOUR_API_KEY>`
 3. Open the extension *in developer mode* as an unpacked extension on `chrome://extensions`
 
+## Tasks
+[] Add support for YouTube, Netflix, Tabula, other sites
+[] Write comments for all code
+[] Make sure tubs / closed is resolved
+[] Make the Devpost catchier?
+
 ---
 
 ### Bianca Sandu, Julius Weisser, Benedek Der, Siddharth Srivastava
