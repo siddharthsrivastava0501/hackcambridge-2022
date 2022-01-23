@@ -10,6 +10,23 @@ Stëmm leverages the [Deepgram](https://docs.deepgram.com) API to convert your s
 2. Create a new file called `config.js` and paste the following line: `globalThis.KEY = <YOUR_API_KEY>`
 3. Open the extension *in developer mode* as an unpacked extension on `chrome://extensions`
 
+## Commands
+
+Function | Command
+--- | ---
+Create a new tab | Chrome open tab
+Close the current tab | Chrome close tab
+Open a new window | Chrome open window
+Open a private browsing window | Chrome open incognito
+Close a window | Chrome close window
+Search on google | Chrome search for `<query>` OR google `<query>`
+Open Netflix | Chrome open Netflix
+Open GitHub | Chrome open GitHub
+Open Instagram | Chrome open Instagram
+Open Facebook | Chrome open Facebook
+Bookmark the current tab | Chrome add to bookmarks
+
+
 ## Tasks
 - [ ] Write comments for all code
 - [ ] Make the Devpost catchier?
