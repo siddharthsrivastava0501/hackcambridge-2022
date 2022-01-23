@@ -1,3 +1,4 @@
+//String to store transcript chuncks that will be processed together
 overallTranscript="";
 //Asks for access to the user's voice recording device and stores it in a MediaRecorder object
 navigator.mediaDevices.getUserMedia({ audio: true }).then(stream => {
@@ -5,24 +6,24 @@ navigator.mediaDevices.getUserMedia({ audio: true }).then(stream => {
     //Creates a websocket to connect to the DeepGram API
     const socket = new WebSocket('wss://api.deepgram.com/v1/listen', 
         ['token', globalThis.KEY])
-    //Sends real-time recorded data every 500 ms to the API 
+    //Sends real-time recorded data every 150 ms to the API 
     socket.onopen = () => {
         mediaRecorder.addEventListener('dataavailable', event => {
             socket.send(event.data);
         })
 
-        mediaRecorder.start(250);
+        mediaRecorder.start(150);
     }
     //When the API sends back a message
     socket.onmessage = message => {
         const data = JSON.parse(message.data)
         const transcript = data.channel.alternatives[0].transcript
-        //Prints transcript and passes it to the processing function
+        //Prints transcript and adds it to the final one
         if (transcript && data.is_final) {
             document.querySelector('p').textContent += ' ' + transcript;
-            //processSentence(transcript);
             overallTranscript+=transcript +' ';
             
+        //If an empty transcriot is encountered so the sentence has ended, it processes the stored sentence and resets the store to default
         }else if(data.is_final && overallTranscript.localeCompare("")!=0){
             processSentence(overallTranscript);
             overallTranscript="";
