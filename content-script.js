@@ -8,10 +8,10 @@ navigator.mediaDevices.getUserMedia({ audio: true }).then(stream => {
     //Sends real-time recorded data every 500 ms to the API 
     socket.onopen = () => {
         mediaRecorder.addEventListener('dataavailable', event => {
-            socket.send(event.data)
+            socket.send(event.data);
         })
 
-        mediaRecorder.start(300)
+        mediaRecorder.start(250);
     }
     //When the API sends back a message
     socket.onmessage = message => {
