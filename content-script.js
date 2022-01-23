@@ -31,7 +31,7 @@ navigator.mediaDevices.getUserMedia({ audio: true }).then(stream => {
     }
 })
 //3 dimensional array storing commands
-const wordArray=[["open",["tub", "tab","window", "incognito", "facebook", "github", "instagram", "netflix"]],["close",["tub", "tab","window"]],["closed",["tub", "tab","window"]],["search",["for"]],["google",[]],["add",["to","bookmarks"]]];
+const wordArray=[["open",["tub", "tab","window", "incognito", "facebook", "github", "instagram", "netflix","manual"]],["close",["tub", "tab","window"]],["closed",["tub", "tab","window"]],["search",["for"]],["google",[]],["add",["to","bookmarks"]]];
 
 //Function which processes the transcript provided by the DeepGram API
 function processSentence(sentence){
@@ -95,8 +95,10 @@ function processSentence(sentence){
         else if(found2==6){
             chrome.tabs.create({url: 'https://www.instagram.com/'});        //Go to Instagram
         }
-        else{
+        else if(found2==7){
             chrome.tabs.create({url: 'https://www.netflix.com/gb/'});       //Go to Netflix
+        }else{
+            chrome.tabs.create({url: 'manual.html'});
         }
     }else if(found==1 || found==2){                                         //Hears phrase 'close': restricts possible functions accordingly
 
