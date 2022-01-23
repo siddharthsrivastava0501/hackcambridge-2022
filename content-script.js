@@ -92,8 +92,9 @@ function processSentence(sentence){
         for (let i = index+3; i < words.length-1; i++) {
             str+=words[i];
             str+=" " ;
-            chrome.search.query({disposition: "NEW_TAB", text: str});
         }
+        console.log("Printy boi");
+        chrome.search.query({disposition: "NEW_TAB", text: str});
         str+=words[words.length-1];
     }else if(found==4){/*Google (things from index+2)*/
         str=""
