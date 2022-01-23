@@ -25,6 +25,7 @@ Open GitHub | Chrome open GitHub
 Open Instagram | Chrome open Instagram
 Open Facebook | Chrome open Facebook
 Bookmark the current tab | Chrome add to bookmarks
+Open the manual page | Chrome open manual
 
 
 ## Tasks
